@@ -1,12 +1,12 @@
 const express = require('express');
 const path = require('path')
 const hbs = require('hbs')
+const port = process.env.PORT || 3000
 
 const geocode = require('./utils/geocode.js')
 const forecast = require('./utils/forecast.js');
 
 const app = express()
-
 
 // Define Paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -76,9 +76,6 @@ app.get('/weather', (req, res) => {
 })
 
 app.get('/courses', (req, res) => {
-    // console.log(req.query)
-    // console.log(req.query.course)
-
     if (!req.query.course) {
         return res.send({
             error: 'ERROR! You must provide course name'
@@ -112,7 +109,7 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('App listening at 3000')
+app.listen(port, () => {
+    console.log('App listening at ' + port)
 });
 

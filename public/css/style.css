@@ -29,8 +29,9 @@ h1 {
 }
 
 p {
-  font-size: 20px;
+  font-size: 22px;
   color: white;
+  font-weight: 600;
 }
 
 header ul {
@@ -73,6 +74,7 @@ form {
   background-color: greenyellow;
   cursor: pointer;
   font-size: 0.9rem;
+  border: none;
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
 }

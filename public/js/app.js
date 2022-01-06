@@ -17,25 +17,17 @@ const updateData = () => {
 const getData = (address) => {
     addressSearch.value = ''
     messageOne.textContent = 'Loading...'
-    // messageTwo.textContent = ''
     updateData()
-    fetch(`http://localhost:3000/weather?address=${address}`).then((response) => {
+    fetch(`/weather?address=${address}`).then((response) => {
         response.json().then((data) => {
             if (data.error) {
-                console.log(data.error)
                 messageOne.textContent = data.error;
             } else {
-                console.log(data.address)
-                console.log(data.forecast)
-                console.log(data.location)
                 messageOne.textContent = 'Location : ' + data.location
-
-                // messageTwo.textContent = `Temperature : ${data.forecast.temperature} Humidity: ${data.forecast.humidity} 
-                // Weather: ${data.forecast.weather} Description: ${data.forecast.description}`
-                temp.textContent = 'Temperature : ' + data.forecast.temperature,
-                    humd.textContent = 'Humidity : ' + data.forecast.humidity,
-                    weather.textContent = 'Weather : ' + data.forecast.weather,
-                    desc.textContent = 'Description : ' + data.forecast.description
+                temp.textContent = 'Temperature : ' + data.forecast.temperature
+                humd.textContent = 'Humidity : ' + data.forecast.humidity
+                weather.textContent = 'Weather : ' + data.forecast.weather
+                desc.textContent = 'Description : ' + data.forecast.description
             }
         })
     })
@@ -46,7 +38,6 @@ const getData = (address) => {
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault()
     const address = addressSearch.value;
-    // console.log(address)
     getData(address);
 })
 
