@@ -13,12 +13,13 @@ const forecast = (long, lat, callback) => {
                 const no = 2
                 const data = body;
                 const { list } = data;
-                const { main, weather } = list[no];
+                const { main, weather, wind } = list[no];
                 callback(undefined, {
                     temperature: main.temp,
                     humidity: main.humidity,
                     weather: weather[0].main,
-                    description: weather[0].description
+                    description: weather[0].description,
+                    wind: wind.speed
                 })
             }
         })

@@ -4,6 +4,7 @@ const temp = document.querySelector('#temp')
 const humd = document.querySelector('#humd')
 const weather = document.querySelector('#weather')
 const desc = document.querySelector('#desc')
+const wind = document.querySelector('#wind')
 const weatherForm = document.querySelector('form')
 const addressSearch = document.querySelector('input')
 
@@ -12,6 +13,7 @@ const updateData = () => {
     humd.textContent = ''
     weather.textContent = ''
     desc.textContent = ''
+    wind.textContent = ''
 }
 
 const getData = (address) => {
@@ -28,6 +30,7 @@ const getData = (address) => {
                 humd.textContent = 'Humidity : ' + data.forecast.humidity
                 weather.textContent = 'Weather : ' + data.forecast.weather
                 desc.textContent = 'Description : ' + data.forecast.description
+                wind.textContent = 'Wind : ' + data.forecast.wind + ' m/s'
             }
         })
     })
